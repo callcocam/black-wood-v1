@@ -28,6 +28,13 @@ class LoadMenuHelper
         $submenus[] = $this->make('Cargos','admin.offices','chevron-right');
         $menus[] = $this->make('OPERACIONAL',null,'cog',$submenus);
         $submenus=[];
+        $submenus[] = $this->make('Categorias','admin.categorias','chevron-right');
+        $submenus[] = $this->make('Posts','admin.posts','chevron-right');
+        $submenus[] = $this->make('Produtos','admin.produtos','chevron-right');
+        $submenus[] = $this->make('Bonus','admin.bonus','chevron-right');
+        $submenus[] = $this->make('Mesas','admin.mesas','chevron-right');
+        $menus[] = $this->make('CADASTROS',null,'plus',$submenus);
+        $submenus=[];
         $submenus[] = $this->make('Niveis','admin.nivels','chevron-right');
         $submenus[] = $this->make('Beneficios','admin.beneficios','chevron-right');
         $menus[] = $this->make('PONTOS',null,'office-building',$submenus);

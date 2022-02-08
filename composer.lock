@@ -181,12 +181,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/callcocam/packages-tall.git",
-                "reference": "efe2e900da207c2783fc8e2e2783ad8137cc43d3"
+                "reference": "a973c0ba13ac1ffaca18942e85fd9907c87a843a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/callcocam/packages-tall/zipball/efe2e900da207c2783fc8e2e2783ad8137cc43d3",
-                "reference": "efe2e900da207c2783fc8e2e2783ad8137cc43d3",
+                "url": "https://api.github.com/repos/callcocam/packages-tall/zipball/a973c0ba13ac1ffaca18942e85fd9907c87a843a",
+                "reference": "a973c0ba13ac1ffaca18942e85fd9907c87a843a",
                 "shasum": ""
             },
             "require": {
@@ -232,7 +232,7 @@
                 "issues": "https://github.com/callcocam/packages-tall/issues",
                 "source": "https://github.com/callcocam/packages-tall/tree/main"
             },
-            "time": "2022-01-17T00:18:24+00:00"
+            "time": "2022-01-21T19:57:04+00:00"
         },
         {
             "name": "composer/pcre",

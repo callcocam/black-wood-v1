@@ -11,6 +11,7 @@ use Tall\Form\FormComponent;
 use Illuminate\Support\Facades\Route;
 use Tall\Form\Fields\Input;
 use Tall\Form\Fields\Radio;
+use Tall\Form\Fields\Select;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 
@@ -69,8 +70,10 @@ class CreateComponent extends FormComponent
     */
     protected function fields(): array
     {
-        return [
-            Input::make('Name')->rules('required'),
+        return [  
+            Select::make('Nivel','nivel_id')->span(5)->rules('required')
+            ->options(\App\Models\Nivel::query()->pluck('name','id')->toArray()),
+            Input::make('Beneficio','name')->span(7)->rules('required'),
             Radio::make('Status', 'status_id')->status()->lg()
         ];
     }

@@ -36,6 +36,10 @@ final class ListComponent extends TableComponent
         Route::get('/mesas', static::class)->name('admin.mesas');
     }
 
+    public function getCreateProperty()
+    {
+        return 'admin.mesa.create';
+    }
     /*
     |--------------------------------------------------------------------------
     |  Features query

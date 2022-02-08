@@ -1,7 +1,7 @@
 {
-    "/js/app.js": "/js/app.js?id=8376cdd4adac53fbffe3",
-    "/js/assets/app.js": "/js/assets/app.js?id=eae2afb454de6453a56d",
-    "/css/assets/app.css": "/css/assets/app.css?id=741be3c308eb019dab4e",
-    "/css/app.css": "/css/app.css?id=0ea20c4e57252e313ff5",
-    "/js/assets/scroll.js": "/js/assets/scroll.js?id=ee606c2f3bf95157a1dc"
+    "/js/app.js": "/js/app.js",
+    "/js/assets/app.js": "/js/assets/app.js",
+    "/css/assets/app.css": "/css/assets/app.css",
+    "/css/app.css": "/css/app.css",
+    "/js/assets/scroll.js": "/js/assets/scroll.js"
 }

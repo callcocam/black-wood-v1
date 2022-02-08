@@ -11,6 +11,7 @@ use Tall\Form\FormComponent;
 use Illuminate\Support\Facades\Route;
 use Tall\Form\Fields\Input;
 use Tall\Form\Fields\Radio;
+use Tall\Form\Fields\Currency;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 
@@ -70,7 +71,9 @@ class EditComponent extends FormComponent
     protected function fields(): array
     {
         return [
-            Input::make('Name')->rules('required'),
+            Input::make('Name')->span(6)->rules('required'),
+            Currency::make('Valor da Reserva','price')->span(3)->rules('required'),
+            Input::make('Lugares','occupation')->span(3)->rules('required'),
             Radio::make('Status', 'status_id')->status()->lg()
         ];
     }
