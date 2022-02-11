@@ -1,97 +1,411 @@
-<div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-    <div class="grid grid-cols-1 md:grid-cols-2">
-        <div class="p-6">
-            <div class="flex items-center">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
-                    <path
-                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
-                    </path>
-                </svg>
-                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs"
-                        class="underline text-gray-900 dark:text-white">Documentation</a></div>
-            </div>
+<div>
+    <!-- loader -->
+    <div id="loader">
+        <div class="spinner-border text-primary" role="status"></div>
+    </div>
+    <!-- * loader -->
 
-            <div class="ml-12">
-                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                    Laravel has wonderful, thorough documentation covering every aspect of the framework.
-                    Whether you are new to the framework or have previous experience with Laravel, we recommend
-                    reading all of the documentation from beginning to end.
+    <!-- App Header -->
+    <div class="appHeader bg-primary scrolled">
+        <div class="left">
+            <a href="#" class="headerButton" data-bs-toggle="offcanvas" data-bs-target="#sidebarPanel">
+                <ion-icon name="menu-outline"></ion-icon>
+            </a>
+        </div>
+        <div class="pageTitle">
+            Discover
+        </div>
+        <div class="right">
+            <a href="#" class="headerButton toggle-searchbox">
+                <ion-icon name="search-outline"></ion-icon>
+            </a>
+        </div>
+    </div>
+    <!-- * App Header -->
+
+    <!-- Search Component -->
+    <div id="search" class="appHeader">
+        <form class="search-form">
+            <div class="form-group searchbox">
+                <input type="text" class="form-control" placeholder="Search...">
+                <i class="input-icon">
+                    <ion-icon name="search-outline"></ion-icon>
+                </i>
+                <a href="#" class="ms-1 close toggle-searchbox">
+                    <ion-icon name="close-circle"></ion-icon>
+                </a>
+            </div>
+        </form>
+    </div>
+    <!-- * Search Component -->
+
+    <!-- App Capsule -->
+    <div id="appCapsule">
+
+        <div class="header-large-title">
+            <h1 class="title">Discover</h1>
+            <h4 class="subtitle">Welcome to Mobilekit</h4>
+        </div>
+
+        <div class="section full mt-3 mb-3">
+
+            <!-- carousel multiple -->
+            <div class="carousel-multiple splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="card">
+                                <img src="assets/img/sample/photo/d1.jpg" class="card-img-top" alt="image">
+                                <div class="card-body pt-2">
+                                    <h4 class="mb-0">Progressive web app ready</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="card">
+                                <img src="assets/img/sample/photo/d2.jpg" class="card-img-top" alt="image">
+                                <div class="card-body pt-2">
+                                    <h4 class="mb-0">Reusable components</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="card">
+                                <img src="assets/img/sample/photo/d3.jpg" class="card-img-top" alt="image">
+                                <div class="card-body pt-2">
+                                    <h4 class="mb-0">Great for phones & tablets</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="card">
+                                <img src="assets/img/sample/photo/d4.jpg" class="card-img-top" alt="image">
+                                <div class="card-body pt-2">
+                                    <h4 class="mb-0">Change the styles in sass</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="card">
+                                <img src="assets/img/sample/photo/d6.jpg" class="card-img-top" alt="image">
+                                <div class="card-body pt-2">
+                                    <h4 class="mb-0">Sketch source file included</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="card">
+                                <img src="assets/img/sample/photo/d7.jpg" class="card-img-top" alt="image">
+                                <div class="card-body pt-2">
+                                    <h4 class="mb-0">RTL (Right to Left) Support</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="card">
+                                <img src="assets/img/sample/photo/d5.jpg" class="card-img-top" alt="image">
+                                <div class="card-body pt-2">
+                                    <h4 class="mb-0">Written with a code structure</h4>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- * carousel multiple -->
+
+        </div>
+
+
+        <div class="section mt-3 mb-3">
+            <div class="card">
+                <div class="card-body d-flex justify-content-between align-items-end">
+                    <div>
+                        <h6 class="card-subtitle">Discover</h6>
+                        <h5 class="card-title mb-0 d-flex align-items-center justify-content-between">
+                            Dark Mode
+                        </h5>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input dark-mode-switch" type="checkbox" id="darkmodecontent">
+                        <label class="form-check-label" for="darkmodecontent"></label>
+                    </div>
+
                 </div>
             </div>
         </div>
 
-        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-            <div class="flex items-center">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
-                    <path
-                        d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z">
-                    </path>
-                    <path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com"
-                        class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-            </div>
-
-            <div class="ml-12">
-                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development.
-                    Check them out, see for yourself, and massively level up your development skills in the
-                    process.
+        <div class="section mt-3 mb-3">
+            <div class="card">
+                <img src="assets/img/sample/photo/wide4.jpg" class="card-img-top" alt="image">
+                <div class="card-body">
+                    <h6 class="card-subtitle">Discover</h6>
+                    <h5 class="card-title">Components</h5>
+                    <p class="card-text">
+                        Reusable components designed for the mobile interface and ready to use.
+                    </p>
+                    <a href="app-components.html" class="btn btn-primary">
+                        <ion-icon name="cube-outline"></ion-icon>
+                        Preview
+                    </a>
                 </div>
             </div>
         </div>
 
-        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-            <div class="flex items-center">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
-                    <path
-                        d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z">
-                    </path>
-                </svg>
-                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/"
-                        class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-            </div>
-
-            <div class="ml-12">
-                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                    Laravel News is a community driven portal and newsletter aggregating all of the latest and
-                    most important news in the Laravel ecosystem, including new package releases and tutorials.
+        <div class="section mt-3 mb-3">
+            <div class="card">
+                <img src="assets/img/sample/photo/wide2.jpg" class="card-img-top" alt="image">
+                <div class="card-body">
+                    <h6 class="card-subtitle">Discover</h6>
+                    <h5 class="card-title">Pages</h5>
+                    <p class="card-text">
+                        Mobilekit comes with basic pages you may need and use in your projects easily.
+                    </p>
+                    <a href="app-pages.html" class="btn btn-primary">
+                        <ion-icon name="layers-outline"></ion-icon>
+                        Preview
+                    </a>
                 </div>
             </div>
         </div>
 
-        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-            <div class="flex items-center">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
-                    <path
-                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                    </path>
-                </svg>
-                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant
-                    Ecosystem</div>
+
+        <!-- app footer -->
+        <div class="appFooter">
+            <img src="assets/img/logo.png" alt="icon" class="footer-logo mb-2">
+            <div class="footer-title">
+                Copyright © Mobilekit <span class="yearNow"></span>. All Rights Reserved.
+            </div>
+            <div>Mobilekit is PWA ready Mobile UI Kit Template.</div>
+            Great way to start your mobile websites and pwa projects.
+
+            <div class="mt-2">
+                <a href="#" class="btn btn-icon btn-sm btn-facebook">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a href="#" class="btn btn-icon btn-sm btn-twitter">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+                <a href="#" class="btn btn-icon btn-sm btn-linkedin">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+                <a href="#" class="btn btn-icon btn-sm btn-instagram">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a href="#" class="btn btn-icon btn-sm btn-whatsapp">
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                </a>
+                <a href="#" class="btn btn-icon btn-sm btn-secondary goTop">
+                    <ion-icon name="arrow-up-outline"></ion-icon>
+                </a>
             </div>
 
-            <div class="ml-12">
-                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                    Laravel's robust library of first-party tools and libraries, such as <a
-                        href="https://forge.laravel.com" class="underline">Forge</a>, <a
-                        href="https://vapor.laravel.com" class="underline">Vapor</a>, <a
-                        href="https://nova.laravel.com" class="underline">Nova</a>, and <a
-                        href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects
-                    to the next level. Pair them with powerful open source libraries like <a
-                        href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a
-                        href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a
-                        href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a
-                        href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a
-                        href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a
-                        href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and
-                    more.
+        </div>
+        <!-- * app footer -->
+
+    </div>
+    <!-- * App Capsule -->
+
+
+    <!-- App Bottom Menu -->
+    <div class="appBottomMenu">
+        <a href="index.html" class="item active">
+            <div class="col">
+                <ion-icon name="home-outline"></ion-icon>
+            </div>
+        </a>
+        <a href="app-components.html" class="item">
+            <div class="col">
+                <ion-icon name="cube-outline"></ion-icon>
+            </div>
+        </a>
+        <a href="page-chat.html" class="item">
+            <div class="col">
+                <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+                <span class="badge badge-danger">5</span>
+            </div>
+        </a>
+        <a href="app-pages.html" class="item">
+            <div class="col">
+                <ion-icon name="layers-outline"></ion-icon>
+            </div>
+        </a>
+        <a href="#sidebarPanel" class="item" data-bs-toggle="offcanvas">
+            <div class="col">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+        </a>
+    </div>
+    <!-- * App Bottom Menu -->
+
+    <!-- App Sidebar -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarPanel">
+        <div class="offcanvas-body">
+            <!-- profile box -->
+            <div class="profileBox">
+                <div class="image-wrapper">
+                    <img src="assets/img/sample/avatar/avatar1.jpg" alt="image" class="imaged rounded">
+                </div>
+                <div class="in">
+                    <strong>Julian Gruber</strong>
+                    <div class="text-muted">
+                        <ion-icon name="location"></ion-icon>
+                        California
+                    </div>
+                </div>
+                <a href="#" class="close-sidebar-button" data-bs-dismiss="offcanvas">
+                    <ion-icon name="close"></ion-icon>
+                </a>
+            </div>
+            <!-- * profile box -->
+
+            <ul class="listview flush transparent no-line image-listview mt-2">
+                <li>
+                    <a href="index.html" class="item">
+                        <div class="icon-box bg-primary">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </div>
+                        <div class="in">
+                            Discover
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="app-components.html" class="item">
+                        <div class="icon-box bg-primary">
+                            <ion-icon name="cube-outline"></ion-icon>
+                        </div>
+                        <div class="in">
+                            Components
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="app-pages.html" class="item">
+                        <div class="icon-box bg-primary">
+                            <ion-icon name="layers-outline"></ion-icon>
+                        </div>
+                        <div class="in">
+                            <div>Pages</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="page-chat.html" class="item">
+                        <div class="icon-box bg-primary">
+                            <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+                        </div>
+                        <div class="in">
+                            <div>Chat</div>
+                            <span class="badge badge-danger">5</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <div class="item">
+                        <div class="icon-box bg-primary">
+                            <ion-icon name="moon-outline"></ion-icon>
+                        </div>
+                        <div class="in">
+                            <div>Dark Mode</div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input dark-mode-switch" type="checkbox" id="darkmodesidebar">
+                                <label class="form-check-label" for="darkmodesidebar"></label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="listview-title mt-2 mb-1">
+                <span>Friends</span>
+            </div>
+            <ul class="listview image-listview flush transparent no-line">
+                <li>
+                    <a href="page-chat.html" class="item">
+                        <img src="assets/img/sample/avatar/avatar7.jpg" alt="image" class="image">
+                        <div class="in">
+                            <div>Sophie Asveld</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="page-chat.html" class="item">
+                        <img src="assets/img/sample/avatar/avatar3.jpg" alt="image" class="image">
+                        <div class="in">
+                            <div>Sebastian Bennett</div>
+                            <span class="badge badge-danger">6</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="page-chat.html" class="item">
+                        <img src="assets/img/sample/avatar/avatar10.jpg" alt="image" class="image">
+                        <div class="in">
+                            <div>Beth Murphy</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="page-chat.html" class="item">
+                        <img src="assets/img/sample/avatar/avatar2.jpg" alt="image" class="image">
+                        <div class="in">
+                            <div>Amelia Cabal</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="page-chat.html" class="item">
+                        <img src="assets/img/sample/avatar/avatar5.jpg" alt="image" class="image">
+                        <div class="in">
+                            <div>Henry Doe</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- sidebar buttons -->
+        <div class="sidebar-buttons">
+            <a href="#" class="button">
+                <ion-icon name="person-outline"></ion-icon>
+            </a>
+            <a href="#" class="button">
+                <ion-icon name="archive-outline"></ion-icon>
+            </a>
+            <a href="#" class="button">
+                <ion-icon name="settings-outline"></ion-icon>
+            </a>
+            <a href="#" class="button">
+                <ion-icon name="log-out-outline"></ion-icon>
+            </a>
+        </div>
+        <!-- * sidebar buttons -->
+    </div>
+    <!-- * App Sidebar -->
+
+    <!-- welcome notification  -->
+    <div id="notification-welcome" class="notification-box">
+        <div class="notification-dialog android-style">
+            <div class="notification-header">
+                <div class="in">
+                    <img src="assets/img/icon/72x72.png" alt="image" class="imaged w24">
+                    <strong>Mobilekit</strong>
+                    <span>just now</span>
+                </div>
+                <a href="#" class="close-button">
+                    <ion-icon name="close"></ion-icon>
+                </a>
+            </div>
+            <div class="notification-content">
+                <div class="in">
+                    <h3 class="subtitle">Welcome to Mobilekit</h3>
+                    <div class="text">
+                        Mobilekit is a PWA ready Mobile UI Kit Template.
+                        Great way to start your mobile websites and pwa projects.
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
 </div>
