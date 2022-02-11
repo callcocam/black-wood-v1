@@ -13,7 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', \App\Http\Livewire\Paginas\DashboardComponent::class)->name('home');
+Route::middleware(['web','auth:sanctum', 'verified'])
+->group(function(){
+    \App\ComponentParser::generateRoute(app_path('Http/Livewire/Paginas'));
+});
+
+
+
 Route::get('/dashboard', function(){
     return redirect()->route('dashboard');
 })->name('admin.dashboard');
@@ -21,4 +27,3 @@ Route::get('/dashboard', function(){
 //Route::middleware(['auth:sanctum', 'verified'])->get('/admin/dashboard', \App\Http\Livewire\Admin\DashboardComponent::class)->name('dashboard');
 
 
-\App\ComponentParser::generateRoute(app_path('Http/Livewire/Paginas'));
