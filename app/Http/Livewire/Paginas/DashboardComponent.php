@@ -34,7 +34,7 @@ class DashboardComponent extends AbstractPaginaComponent
    protected function query()
    {
       
-        if(auth()->user()->pedido()->whereNull('mesa_id')->count()){
+        if(!auth()->user()->pedido()->whereNull('mesa_id')->count()){
           return \App\Models\Mesa::query();
         }
         return null;
