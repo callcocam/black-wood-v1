@@ -55,4 +55,9 @@ class User extends Authenticatable
     // {
     //     return $this->roles()->pluck('id','id')->toArray();
     // }
+
+    public function pedido()
+    {
+        return $this->hasOne(Pedido::class);
+    }
 }

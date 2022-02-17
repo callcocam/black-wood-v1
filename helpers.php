@@ -163,3 +163,16 @@ if ( ! function_exists('form_read'))
         return $post;
     }
 }
+
+if ( ! function_exists('currentTenant'))
+{
+    /**
+     * Get the configuration path.
+     *
+     * @param  string $path
+     * @return string
+     */
+    function currentTenant() {
+        return app('currentTenant');
+    }
+}

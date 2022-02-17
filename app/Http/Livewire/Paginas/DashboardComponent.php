@@ -8,7 +8,7 @@ namespace App\Http\Livewire\Paginas;
 
 use Livewire\Component;
 
-class DashboardComponent extends Component
+class DashboardComponent extends AbstractPaginaComponent
 {
     
         /*
@@ -19,12 +19,24 @@ class DashboardComponent extends Component
     |
     */
 
+    protected $perPage = 1000;
+
     public function route(){
         \Route::get('', static::class)->name('home');
     }
 
-    public function render()
+    public function view()
     {
-        return view('livewire.paginas.dashboard-component');
+        return 'livewire.paginas.dashboard-component';
     }
+
+    
+   protected function query()
+   {
+      
+        if(auth()->user()->pedido()->whereNull('mesa_id')->count()){
+          return \App\Models\Mesa::query();
+        }
+        return null;
+   }
 }

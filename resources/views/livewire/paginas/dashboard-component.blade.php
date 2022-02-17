@@ -17,76 +17,46 @@
     </x-slot>
     <div id="appCapsule">
         <div class="header-large-title">
-            <h1 class="title">Discover</h1>
-            <h4 class="subtitle">Welcome to Mobilekit</h4>
+            <h1 class="title">{{ currentTenant()->name }}</h1>
+            @if ($models)
+                <h4 class="subtitle">Mesas</h4>
+            @endif
         </div>
 
         <div class="section full mt-3 mb-3">
-
-            <!-- carousel multiple -->
-            <div class="carousel-multiple splide">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        <li class="splide__slide">
-                            <div class="card">
-                                <img src="assets/img/sample/photo/d1.jpg" class="card-img-top" alt="image">
-                                <div class="card-body pt-2">
-                                    <h4 class="mb-0">Progressive web app ready</h4>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="splide__slide">
-                            <div class="card">
-                                <img src="assets/img/sample/photo/d2.jpg" class="card-img-top" alt="image">
-                                <div class="card-body pt-2">
-                                    <h4 class="mb-0">Reusable components</h4>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="splide__slide">
-                            <div class="card">
-                                <img src="assets/img/sample/photo/d3.jpg" class="card-img-top" alt="image">
-                                <div class="card-body pt-2">
-                                    <h4 class="mb-0">Great for phones & tablets</h4>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="splide__slide">
-                            <div class="card">
-                                <img src="assets/img/sample/photo/d4.jpg" class="card-img-top" alt="image">
-                                <div class="card-body pt-2">
-                                    <h4 class="mb-0">Change the styles in sass</h4>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="splide__slide">
-                            <div class="card">
-                                <img src="assets/img/sample/photo/d6.jpg" class="card-img-top" alt="image">
-                                <div class="card-body pt-2">
-                                    <h4 class="mb-0">Sketch source file included</h4>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="splide__slide">
-                            <div class="card">
-                                <img src="assets/img/sample/photo/d7.jpg" class="card-img-top" alt="image">
-                                <div class="card-body pt-2">
-                                    <h4 class="mb-0">RTL (Right to Left) Support</h4>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="splide__slide">
-                            <div class="card">
-                                <img src="assets/img/sample/photo/d5.jpg" class="card-img-top" alt="image">
-                                <div class="card-body pt-2">
-                                    <h4 class="mb-0">Written with a code structure</h4>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+            @if ($models)
+                <!-- carousel multiple -->
+                <div class="carousel-multiple splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            @foreach ($models as $item)
+                                <li class="splide__slide">
+                                    @livewire('includes.mesa-component', ['model' => $item], key($item->id))
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <!-- * carousel multiple -->
+                <!-- * carousel multiple -->
+            @else
+                @if ($pedido = auth()->user()->pedido)
+                    <div class="card">
+                        <img src="{{ asset('img/mesas.svg') }}" class="card-img-top" alt="image">
+                        <div class="card-body">
+                            <h6 class="card-subtitle">{{ $pedido->mesa->name }}</h6>
+                            <h5 class="card-title">{{ $pedido->status->name }}</h5>
+                            <p class="card-text">
+                                Reusable components designed for the mobile interface and ready to use.
+                            </p>
+                            <a href="" class="btn btn-primary btn-block">
+                                <ion-icon name="add-outline"></ion-icon>
+                                Fazer pedido
+                            </a>
+                        </div>
+                    </div>
+                @endif
+            @endif
+
 
         </div>
 
@@ -108,42 +78,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="section mt-3 mb-3">
-            <div class="card">
-                <img src="assets/img/sample/photo/wide4.jpg" class="card-img-top" alt="image">
-                <div class="card-body">
-                    <h6 class="card-subtitle">Discover</h6>
-                    <h5 class="card-title">Components</h5>
-                    <p class="card-text">
-                        Reusable components designed for the mobile interface and ready to use.
-                    </p>
-                    <a href="" class="btn btn-primary">
-                        <ion-icon name="cube-outline"></ion-icon>
-                        Preview
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="section mt-3 mb-3">
-            <div class="card">
-                <img src="assets/img/sample/photo/wide2.jpg" class="card-img-top" alt="image">
-                <div class="card-body">
-                    <h6 class="card-subtitle">Discover</h6>
-                    <h5 class="card-title">Pages</h5>
-                    <p class="card-text">
-                        Mobilekit comes with basic pages you may need and use in your projects easily.
-                    </p>
-                    <a href="" class="btn btn-primary">
-                        <ion-icon name="layers-outline"></ion-icon>
-                        Preview
-                    </a>
-                </div>
-            </div>
-        </div>
-
-
+        @livewire('includes.produtos-component')
         <!-- app footer -->
         <div class="appFooter">
             <img src="assets/img/logo.png" alt="icon" class="footer-logo mb-2">

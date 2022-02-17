@@ -26,6 +26,7 @@ class LoadMenuHelper
         $submenus[] = $this->make('Roles','admin.roles','chevron-right');
         $submenus[] = $this->make('Permissions','admin.permissions','chevron-right');
         $submenus[] = $this->make('Cargos','admin.offices','chevron-right');
+        $submenus[] = $this->make('Status','admin.statuses','chevron-right');
         $menus[] = $this->make('OPERACIONAL',null,'cog',$submenus);
         $submenus=[];
         $submenus[] = $this->make('Categorias','admin.categorias','chevron-right');
