@@ -56,11 +56,7 @@
                     </div>
                 @endif
             @endif
-
-
         </div>
-
-
         <div class="section mt-3 mb-3">
             <div class="card">
                 <div class="card-body d-flex justify-content-between align-items-end">
