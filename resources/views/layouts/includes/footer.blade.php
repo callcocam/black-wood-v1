@@ -1,10 +1,10 @@
 <!-- app footer -->
 <div class="appFooter">
-    <img src="assets/img/logo.png" alt="icon" class="footer-logo mb-2">
+    <img src="{{ asset('assets/img/logo.png') }}" alt="icon" class="footer-logo mb-2">
     <div class="footer-title">
-        Copyright © Mobilekit <span class="yearNow"></span>. All Rights Reserved.
+        Copyright © SIGA <span class="yearNow"></span>. All Rights Reserved.
     </div>
-    <div>Mobilekit is PWA ready Mobile UI Kit Template.</div>
+    <div>SIGA is PWA ready Mobile UI Kit Template.</div>
     Great way to start your mobile websites and pwa projects.
 
     <div class="mt-2">

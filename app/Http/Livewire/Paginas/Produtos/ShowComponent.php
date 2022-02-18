@@ -21,4 +21,10 @@ class ShowComponent extends AbstractPaginaComponent
     {
         return 'livewire.paginas.produtos.show-component';
     }
+
+    
+    protected function query()
+    {
+        return \App\Models\Produto::query()->where('categoria_id',$this->model->categoria_id);
+    }
 }

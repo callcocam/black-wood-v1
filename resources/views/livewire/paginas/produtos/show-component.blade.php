@@ -42,8 +42,8 @@
             <div class="detail-footer">
                 <!-- price -->
                 <div class="price">
-                    <div class="old-price">R$ {{ form_read($model->old_price)}}</div>
-                    <div class="current-price">R$ {{ form_read($model->sale_price)}}</div>
+                    <div class="old-price">R$ {{ form_read($model->old_price) }}</div>
+                    <div class="current-price">R$ {{ form_read($model->sale_price) }}</div>
                 </div>
                 <!-- * price -->
                 <!-- amount -->
@@ -67,7 +67,7 @@
     <div class="section full mt-2">
         <div class="section-title">Product Details</div>
         <div class="wide-block pt-2 pb-2">
-           {!! $model->description->content !!}
+            {!! $model->description->content !!}
         </div>
 
     </div>
@@ -81,7 +81,7 @@
                 <!--item -->
                 <div class="item">
                     <div class="avatar">
-                        <img src="assets/img/sample/avatar/avatar1.jpg" alt="avatar" class="imaged w32 rounded">
+                        <img src="{{ asset('assets/img/sample/avatar/avatar1.jpg') }}" alt="avatar" class="imaged w32 rounded">
                     </div>
                     <div class="in">
                         <div class="comment-header">
@@ -114,7 +114,7 @@
                 <!--item -->
                 <div class="item">
                     <div class="avatar">
-                        <img src="assets/img/sample/avatar/avatar4.jpg" alt="avatar" class="imaged w32 rounded">
+                        <img src="{{ asset('assets/img/sample/avatar/avatar1.jpg') }}" alt="avatar" class="imaged w32 rounded">
                     </div>
                     <div class="in">
                         <div class="comment-header">
@@ -159,30 +159,30 @@
 
 
     <div class="section full mt-2 mb-3">
-        <div class="section-title mb-1">Related Items</div>
-
-
-        <!-- carousel multiple -->
+        <div class="section-title mb-1">Produtos relacionados</div>        <!-- carousel multiple -->
         <div class="carousel-multiple splide">
             <div class="splide__track">
                 <ul class="splide__list">
-                    <li class="splide__slide">
-                        <div class="card product-card">
-                            <div class="card-body">
-                                <img src="assets/img/sample/photo/product1.jpg" class="image"
-                                    alt="product image">
-                                <h2 class="title">Apple</h2>
-                                <p class="text">1 kg</p>
-                                <div class="price">$ 4.99</div>
-                                <a href="#" class="btn btn-sm btn-primary btn-block">ADD TO CART</a>
-                            </div>
-                        </div>
-                    </li>
+                    @if ($models)
+                        @foreach ($models as $item)
+                            <li class="splide__slide">
+                                <div class="card product-card">
+                                    <div class="card-body">
+                                        <img src="{{ $item->cover_url }}" class="image"
+                                            alt="product image">
+                                        <h2 class="title">{{ $item->name }}</h2>
+                                        <p class="text">1 kg</p>
+                                        <div class="price">R$ {{ form_read($item->sale_price) }}</div>
+                                        <a href="{{ route('produtos.show', $item) }}" class="btn btn-sm btn-primary btn-block">VISUALIZAR</a>
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
+                    @endif
                 </ul>
             </div>
         </div>
         <!-- * carousel multiple -->
-
     </div>
     <!-- App Sidebar -->
     @include('layouts.includes.footer')
