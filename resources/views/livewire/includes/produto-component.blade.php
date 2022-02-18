@@ -7,9 +7,9 @@
             <p class="card-text">
                 {!! $model->description->preview !!}
             </p>
-            <a href="" class="btn btn-primary btn-block">
+            <a href="{{ route('produtos.show', $model) }}" class="btn btn-primary btn-block">
                 <ion-icon name="add-outline"></ion-icon>
-                Adicionar ao pedido
+                Detalhes do produto
             </a>
         </div>
     </div>

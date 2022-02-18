@@ -7,12 +7,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-//use App\Models\Traits\HasCover;
+use App\Models\Traits\HasCover;
 
 class Categoria  extends AbstractModel
 {
   use HasFactory;
-  //use HasCover;
+  use HasCover;
 
   protected $guarded = ["id"];
 

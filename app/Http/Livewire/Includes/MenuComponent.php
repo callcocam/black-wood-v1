@@ -2,12 +2,25 @@
 
 namespace App\Http\Livewire\Includes;
 
-use Livewire\Component;
 
-class MenuComponent extends Component
+use App\Http\Livewire\Paginas\AbstractPaginaComponent;
+use App\Models\Categoria;
+
+class MenuComponent extends AbstractPaginaComponent
 {
-    public function render()
+    public function view()
     {
-        return view('livewire.includes.menu-component');
+        return 'livewire.includes.menu-component';
+    }
+
+    
+    protected function query()
+    {
+        return Categoria::query();
+    }
+
+    public function getCategorias($type="post")
+    {
+        return $this->query()->where('type',$type)->get();
     }
 }

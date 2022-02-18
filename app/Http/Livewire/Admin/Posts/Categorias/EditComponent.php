@@ -11,6 +11,7 @@ use Tall\Form\FormComponent;
 use Illuminate\Support\Facades\Route;
 use Tall\Form\Fields\Input;
 use Tall\Form\Fields\Radio;
+use Tall\Form\Fields\Upload;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 
@@ -71,6 +72,7 @@ class EditComponent extends FormComponent
     {
         return [
             Input::make('Name')->rules('required'),
+            Upload::make('Cover', 'cover')->placeholder("Select Your Image"),  
             Radio::make('Tipo', 'type')->options(['product'=>'Produto','post'=>'Post'])->lg(),
             Radio::make('Status', 'status_id')->status()->lg()
         ];

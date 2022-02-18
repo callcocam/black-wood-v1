@@ -6,11 +6,11 @@
                 </a>
             </div>
             <div class="pageTitle">
-                Discover
-            </div>
+                {{ currentTenant()->name }}
+             </div>
             <div class="right">
-                <a href="#" class="headerButton toggle-searchbox">
-                    <ion-icon name="search-outline"></ion-icon>
+                <a href="#" class="toggle-searchbox">
+                    <ion-icon name="cart-outline"></ion-icon>
                 </a>
             </div>
         </div>
@@ -46,7 +46,8 @@
                             <h6 class="card-subtitle">{{ $pedido->mesa->name }}</h6>
                             <h5 class="card-title">{{ $pedido->status->name }}</h5>
                             <p class="card-text">
-                                Reusable components designed for the mobile interface and ready to use.
+                                Mesa com {{ $pedido->mesa->occupation }} cadeira(s), valor da reserva R$
+                                {{ form_read($pedido->mesa->price) }}
                             </p>
                             <a href="" class="btn btn-primary btn-block">
                                 <ion-icon name="add-outline"></ion-icon>
@@ -75,36 +76,7 @@
             </div>
         </div>
         @livewire('includes.produtos-component')
-        <!-- app footer -->
-        <div class="appFooter">
-            <img src="assets/img/logo.png" alt="icon" class="footer-logo mb-2">
-            <div class="footer-title">
-                Copyright © Mobilekit <span class="yearNow"></span>. All Rights Reserved.
-            </div>
-            <div>Mobilekit is PWA ready Mobile UI Kit Template.</div>
-            Great way to start your mobile websites and pwa projects.
-
-            <div class="mt-2">
-                <a href="#" class="btn btn-icon btn-sm btn-facebook">
-                    <ion-icon name="logo-facebook"></ion-icon>
-                </a>
-                <a href="#" class="btn btn-icon btn-sm btn-twitter">
-                    <ion-icon name="logo-twitter"></ion-icon>
-                </a>
-                <a href="#" class="btn btn-icon btn-sm btn-linkedin">
-                    <ion-icon name="logo-linkedin"></ion-icon>
-                </a>
-                <a href="#" class="btn btn-icon btn-sm btn-instagram">
-                    <ion-icon name="logo-instagram"></ion-icon>
-                </a>
-                <a href="#" class="btn btn-icon btn-sm btn-whatsapp">
-                    <ion-icon name="logo-whatsapp"></ion-icon>
-                </a>
-                <a href="#" class="btn btn-icon btn-sm btn-secondary goTop">
-                    <ion-icon name="arrow-up-outline"></ion-icon>
-                </a>
-            </div>
-
-        </div>
-        <!-- * app footer -->
+        <!-- App Sidebar -->
+        @include('layouts.includes.footer')
+        <!-- App Bottom Menu -->
     </div>

@@ -17,7 +17,8 @@
         <!-- profile box -->
         <div class="profileBox">
             <div class="image-wrapper">
-                <img src="{{ auth()->user()->profile_photo_url }}" alt="{{ auth()->user()->name }}" class="imaged rounded">
+                <img src="{{ auth()->user()->profile_photo_url }}" alt="{{ auth()->user()->name }}"
+                    class="imaged rounded">
             </div>
             <div class="in">
                 <strong>{{ auth()->user()->name }}</strong>
@@ -34,22 +35,22 @@
 
         <ul class="listview flush transparent no-line image-listview mt-2">
             <li>
-                <a href="index.html" class="item">
+                <a href="{{ route('home') }}" class="item">
                     <div class="icon-box bg-primary">
                         <ion-icon name="home-outline"></ion-icon>
                     </div>
                     <div class="in">
-                        Discover
+                        Inicio
                     </div>
                 </a>
             </li>
             <li>
-                <a href="app-components.html" class="item">
+                <a href="{{ route('produtos') }}" class="item">
                     <div class="icon-box bg-primary">
                         <ion-icon name="cube-outline"></ion-icon>
                     </div>
                     <div class="in">
-                        Components
+                        Produtos
                     </div>
                 </a>
             </li>
@@ -90,52 +91,40 @@
             </li>
         </ul>
 
-        <div class="listview-title mt-2 mb-1">
-            <span>Friends</span>
-        </div>
-        <ul class="listview image-listview flush transparent no-line">
-            <li>
-                <a href="page-chat.html" class="item">
-                    <img src="assets/img/sample/avatar/avatar7.jpg" alt="image" class="image">
-                    <div class="in">
-                        <div>Sophie Asveld</div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="page-chat.html" class="item">
-                    <img src="assets/img/sample/avatar/avatar3.jpg" alt="image" class="image">
-                    <div class="in">
-                        <div>Sebastian Bennett</div>
-                        <span class="badge badge-danger">6</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="page-chat.html" class="item">
-                    <img src="assets/img/sample/avatar/avatar10.jpg" alt="image" class="image">
-                    <div class="in">
-                        <div>Beth Murphy</div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="page-chat.html" class="item">
-                    <img src="assets/img/sample/avatar/avatar2.jpg" alt="image" class="image">
-                    <div class="in">
-                        <div>Amelia Cabal</div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="page-chat.html" class="item">
-                    <img src="assets/img/sample/avatar/avatar5.jpg" alt="image" class="image">
-                    <div class="in">
-                        <div>Henry Doe</div>
-                    </div>
-                </a>
-            </li>
-        </ul>
+        @if ($products = $this->getCategorias('product'))
+            <div class="listview-title mt-2 mb-1">
+                <span>Categorias de produtos</span>
+            </div>
+            <ul class="listview image-listview flush transparent no-line">
+                @foreach ($products as $product)
+                    <li>
+                        <a href="" class="item">
+                            <img src="{{ $product->cover_url }}" alt="image" class="image">
+                            <div class="in">
+                                <div>{{ $product->name }}</div>
+                            </div>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        @endif
+        @if ($posts = $this->getCategorias())
+            <div class="listview-title mt-2 mb-1">
+                <span>Categorias de posts</span>
+            </div>
+            <ul class="listview image-listview flush transparent no-line">
+                @foreach ($posts as $post)
+                    <li>
+                        <a href="" class="item">
+                            <img src="{{ $post->cover_url }}" alt="image" class="image">
+                            <div class="in">
+                                <div>{{ $post->name }}</div>
+                            </div>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        @endif
     </div>
     <!-- sidebar buttons -->
     <div class="sidebar-buttons">

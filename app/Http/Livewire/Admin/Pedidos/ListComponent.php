@@ -96,7 +96,7 @@ final class ListComponent extends TableComponent
     */
     protected function columns(){
         return [
-            Column::make('Name')->searchable()->sortable()->makeInputText('name'),
+            Column::make('Client', 'client_id')->sortable(),
             //Column::make('Name')->searchable()->livewire()->sortable()->makeInputText('name'),
             //Column::make('Name')->searchable()->view('_coner')->sortable()->makeInputText('name'),
             // Column::make('Name')->searchable()->format(function($model, $column){

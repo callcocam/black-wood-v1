@@ -77,9 +77,10 @@ class EditComponent extends FormComponent
             Input::make('Name')->rules('required')->span(7),
             Select::make('Categoria','categoria_id')->span(5)->rules('required')
             ->options(\App\Models\Categoria::query()->where('type','product')->pluck('name','id')->toArray()),
-            Input::make('Estoque','stock')->span(4)->rules('required'),
-            Currency::make('Preço de custo','cost_price')->span(4)->rules('required'),
-            Currency::make('Preço de venda','sale_price')->span(4)->rules('required'),
+            Input::make('Estoque','stock')->span(3)->rules('required'),
+            Currency::make('Preço de custo','cost_price')->span(3)->rules('required'),
+            Currency::make('Preço de real','old_price')->span(3)->rules('required'),
+            Currency::make('Preço de venda','sale_price')->span(3)->rules('required'),
             Textarea::make('Observations', 'description.content')
             ->placeholder('Brief description for your profile. URLs are hyperlinked.'),
             Upload::make('Cover', 'cover')->placeholder("Select Your Image"),  

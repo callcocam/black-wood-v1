@@ -6,8 +6,6 @@
 */
 namespace App\Http\Livewire\Paginas;
 
-use Livewire\Component;
-
 class DashboardComponent extends AbstractPaginaComponent
 {
     
@@ -33,10 +31,15 @@ class DashboardComponent extends AbstractPaginaComponent
     
    protected function query()
    {
-      
-        if(!auth()->user()->pedido()->whereNull('mesa_id')->count()){
+
+        if(!$this->isPedido()){
           return \App\Models\Mesa::query();
         }
         return null;
+   }
+   
+   public function isPedido()
+   {
+      return auth()->user()->pedido()->where('current_order',1)->count();
    }
 }

@@ -39,7 +39,10 @@ class LoadMenuHelper
         $submenus[] = $this->make('Niveis','admin.nivels','chevron-right');
         $submenus[] = $this->make('Beneficios','admin.beneficios','chevron-right');
         $menus[] = $this->make('PONTOS',null,'office-building',$submenus);
-
+        
+        $submenus=[];
+        $submenus[] = $this->make('Pedidos','admin.pedidos','chevron-right');
+        $menus[] = $this->make('PEDIDOS',null,'office-building',$submenus);
         // $menus[] = $this->make('ADD PROPIEDADES',"admin.propiedade.create",'plus-circle',null);
         // $menus[] = $this->make('FAVORITADA',"admin.favoritas",'lightning-bolt',null);
       
