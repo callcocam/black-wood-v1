@@ -35,6 +35,7 @@ trait CartTrait
             }
         }
         else{
+             dd($this->current_order());
             $produto = \App\Models\Produto::find($produto);
             $this->current_order()->items()->create([
                 'produto_id'=>$produto->id,
