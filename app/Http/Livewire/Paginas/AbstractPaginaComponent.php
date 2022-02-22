@@ -71,6 +71,9 @@ abstract class AbstractPaginaComponent extends Component
     
     public function current_order_items()
     {
-       return $this->current_order()->items;
+        if($items = $this->current_order())
+            return $items->items;
+
+            return null;
     }
 }
