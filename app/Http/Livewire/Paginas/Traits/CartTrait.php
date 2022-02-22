@@ -19,6 +19,10 @@ trait CartTrait
 
     public function up($produto)
     {
+        // \App\Models\Pedido::query()->where([
+        //     'user_id'=>auth()->user()->id,
+        //     'client_id'=>auth()->user()->id,
+        // ])->delete();
         if($current_order = $this->current_order()){
             if($item = $current_order->items()->where('produto_id', $produto)->first()){
                 $item->increment('quantidade', 1);
@@ -32,25 +36,39 @@ trait CartTrait
                     'sale_price'=> $produto->sale_price,
                     'total'=> $produto->sale_price,
                 ]);
+                
+                return redirect()->route('cart');
             }
         }
         else{
-             if($this->current_order()){
-                \App\Models\Pedido::firstOrCreate([
+             if(!$this->current_order()){
+                $current_order =  \App\Models\Pedido::firstOrCreate([
                     'user_id'=>auth()->user()->id,
                     'client_id'=>auth()->user()->id,
                     'mesa_id'=>null,
                     'delivery'=>0,
                     'status_id'=>\App\Models\Status::isStatus('aberto')->id,
                 ]);
+                $produto = \App\Models\Produto::find($produto);
+                $current_order->items()->create([
+                    'produto_id'=>$produto->id,
+                    'quantidade'=>$this->quantidade,
+                    'sale_price'=> $produto->sale_price,
+                    'total'=> $produto->sale_price,
+                ]);
+                return redirect()->route('cart');
+             }else{
+                $produto = \App\Models\Produto::find($produto);
+                $this->current_order()->items()->create([
+                    'produto_id'=>$produto->id,
+                    'quantidade'=>$this->quantidade,
+                    'sale_price'=> $produto->sale_price,
+                    'total'=> $produto->sale_price,
+                ]);
+                
+                return redirect()->route('cart');
              }
-            $produto = \App\Models\Produto::find($produto);
-            $this->current_order()->items()->create([
-                'produto_id'=>$produto->id,
-                'quantidade'=>$this->quantidade,
-                'sale_price'=> $produto->sale_price,
-                'total'=> $produto->sale_price,
-            ]);
+           
         }
         //$this->quantidade++;
     }
