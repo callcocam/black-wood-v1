@@ -28,6 +28,7 @@ trait CartTrait
         $pedido = \DB::table('pedido_items')
         ->select(\DB::raw('sum(total) as total_pedido'))
         ->where('pedido_id',  $this->current_order()->id)
+        ->whereNull('deleted_at')
         ->first();
 
         $this->current_order()->update([
