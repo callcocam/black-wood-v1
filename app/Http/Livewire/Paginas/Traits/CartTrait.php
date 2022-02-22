@@ -35,7 +35,15 @@ trait CartTrait
             }
         }
         else{
-             dd($this->current_order());
+             if($this->current_order()){
+                \App\Models\Pedido::firstOrCreate([
+                    'user_id'=>auth()->user()->id,
+                    'client_id'=>auth()->user()->id,
+                    'mesa_id'=>null,
+                    'delivery'=>0,
+                    'status_id'=>\App\Models\Status::isStatus('aberto')->id,
+                ]);
+             }
             $produto = \App\Models\Produto::find($produto);
             $this->current_order()->items()->create([
                 'produto_id'=>$produto->id,
