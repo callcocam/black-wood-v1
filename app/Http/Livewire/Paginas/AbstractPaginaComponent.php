@@ -41,10 +41,14 @@ abstract class AbstractPaginaComponent extends Component
 
     public function render()
     {
+        $current_order_items_count = 0;
+        if($current_order_items = $this->current_order_items()){
+            $current_order_items_count = $current_order_items->count();
+        }
         return view($this->view())
         ->with('cupom', 0)
         ->with('isPedido', $this->isPedido())
-        ->with('current_order_items_count', $this->current_order_items()->count())
+        ->with('current_order_items_count', $current_order_items_count)
         ->with('current_order', $this->current_order())
         ->with('model', $this->model)
         ->with('models', $this->models());
