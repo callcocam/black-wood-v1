@@ -9,28 +9,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 //use App\Models\Traits\HasCover;
 
-class Pedido  extends AbstractModel
+class PedidoItem  extends AbstractModel
 {
   use HasFactory;
   //use HasCover;
 
   protected $guarded = ["id"];
-  
+
+  public function pedido()
+  {
+    return $this->hasOne(Pedido::class);
+  }
+
+  public function produto()
+  {
+    return $this->belongsTo(Produto::class);
+  }
+
   /**
    * @return string
    */
   protected function slugTo()
   {
       return false;
-  }
-
-  public function mesa()
-  {
-    return $this->belongsTo(Mesa::class);
-  }
-
-  public function items()
-  {
-    return $this->hasMany(PedidoItem::class);
   }
 }

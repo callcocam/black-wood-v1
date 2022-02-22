@@ -10,6 +10,12 @@
             {{ currentTenant()->name }}/Produtos
         </div>
         <div class="right">
+            @if ($isPedido)
+            <a href="{{ route('cart') }}" class="headerButton position-relative">
+                <ion-icon name="cart-outline"></ion-icon>
+                <span class="badge badge-danger">{{ $current_order_items_count }}</span>
+            </a>
+        @endif
             <a href="#" class="headerButton toggle-searchbox">
                 <ion-icon name="search-outline"></ion-icon>
             </a>

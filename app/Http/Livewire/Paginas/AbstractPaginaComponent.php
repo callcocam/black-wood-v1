@@ -42,6 +42,10 @@ abstract class AbstractPaginaComponent extends Component
     public function render()
     {
         return view($this->view())
+        ->with('cupom', 0)
+        ->with('isPedido', $this->isPedido())
+        ->with('current_order_items_count', $this->current_order_items()->count())
+        ->with('current_order', $this->current_order())
         ->with('model', $this->model)
         ->with('models', $this->models());
     }
@@ -57,5 +61,16 @@ abstract class AbstractPaginaComponent extends Component
     public function isPedido()
     {
        return auth()->user()->pedido()->where('current_order',1)->count();
+    }
+
+    
+    public function current_order()
+    {
+       return auth()->user()->current_order;
+    }
+    
+    public function current_order_items()
+    {
+       return $this->current_order()->items;
     }
 }

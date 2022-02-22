@@ -9,6 +9,12 @@
                 {{ currentTenant()->name }}
              </div>
             <div class="right">
+                @if ($isPedido)
+                <a href="{{ route('cart') }}" class="headerButton position-relative">
+                    <ion-icon name="cart-outline"></ion-icon>
+                    <span class="badge badge-danger">{{ $current_order_items_count }}</span>
+                </a>
+            @endif
                 <a href="#" class="toggle-searchbox">
                     <ion-icon name="cart-outline"></ion-icon>
                 </a>
@@ -49,7 +55,7 @@
                                 Mesa com {{ $pedido->mesa->occupation }} cadeira(s), valor da reserva R$
                                 {{ form_read($pedido->mesa->price) }}
                             </p>
-                            <a href="" class="btn btn-primary btn-block">
+                            <a href="{{ route('produtos') }}" class="btn btn-primary btn-block">
                                 <ion-icon name="add-outline"></ion-icon>
                                 Fazer pedido
                             </a>

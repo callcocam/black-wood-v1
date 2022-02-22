@@ -18,4 +18,8 @@ class Produto  extends AbstractModel
 
   protected $guarded = ["id"];
 
+  public function item()
+  {
+    return $this->hasOne(PedidoItem::class);
+  }
 }

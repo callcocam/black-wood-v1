@@ -60,5 +60,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(Pedido::class);
     }
+
+    public function current_order()
+    {
+        return $this->hasOne(Pedido::class)->where('current_order',1);
+    }
     
 }

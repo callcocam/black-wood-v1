@@ -38,8 +38,5 @@ class DashboardComponent extends AbstractPaginaComponent
         return null;
    }
    
-   public function isPedido()
-   {
-      return auth()->user()->pedido()->where('current_order',1)->count();
-   }
+ 
 }

@@ -1,12 +1,18 @@
 <x-slot name="header">
     <div class="appHeader bg-primary text-light">
         <div class="left">
-            <a href="{{ route('home') }}" class="headerButton">
+            <a href="{{ route('produtos') }}" class="headerButton">
                 <ion-icon name="chevron-back-outline"></ion-icon>
             </a>
         </div>
         <div class="pageTitle">{{ $model->name }}</div>
         <div class="right">
+            @if ($isPedido)
+                <a href="{{ route('cart') }}" class="headerButton position-relative">
+                    <ion-icon name="cart-outline"></ion-icon>
+                    <span class="badge badge-danger">{{ $current_order_items_count }}</span>
+                </a>
+            @endif
             <a href="#" class="headerButton">
                 <ion-icon name="star-outline"></ion-icon>
             </a>
@@ -14,8 +20,6 @@
     </div>
 </x-slot>
 <div id="appCapsule">
-
-
     <!-- carousel full -->
     <div class="carousel-full splide">
         <div class="splide__track">
@@ -30,7 +34,7 @@
 
     <div class="section full">
         <div class="wide-block pt-2 pb-2 product-detail-header">
-            <div class="rate-block mb-1">
+            <div class="rate-block mb-1" wire:ignore>
                 <ion-icon name="star" class="active"></ion-icon>
                 <ion-icon name="star" class="active"></ion-icon>
                 <ion-icon name="star" class="active"></ion-icon>
@@ -49,15 +53,16 @@
                 <!-- amount -->
                 <div class="amount">
                     <div class="stepper stepper-secondary">
-                        <a href="#" class="stepper-button stepper-down">-</a>
-                        <input type="text" class="form-control" value="1" disabled />
-                        <a href="#" class="stepper-button stepper-up">+</a>
+                        <a wire:click="down('{{ $model->id }}')" href="#" class="stepper-button">-</a>
+                        <input wire:model="quantidade" type="text" class="form-control" disabled />
+                        <a wire:click="up('{{ $model->id }}')" href="#" class="stepper-button">+</a>
                     </div>
                 </div>
                 <!-- * amount -->
             </div>
-            <button class="btn btn-primary btn-lg btn-block">
-                <ion-icon name="cart-outline"></ion-icon>
+             
+            <button type="button"  wire:click="add('{{ $model->id }}')" class="btn btn-primary btn-lg btn-block">
+                <ion-icon wire:ignore name="cart-outline"></ion-icon>
                 Adicionar item
             </button>
         </div>
@@ -81,7 +86,8 @@
                 <!--item -->
                 <div class="item">
                     <div class="avatar">
-                        <img src="{{ asset('assets/img/sample/avatar/avatar1.jpg') }}" alt="avatar" class="imaged w32 rounded">
+                        <img src="{{ asset('assets/img/sample/avatar/avatar1.jpg') }}" alt="avatar"
+                            class="imaged w32 rounded">
                     </div>
                     <div class="in">
                         <div class="comment-header">
@@ -114,7 +120,8 @@
                 <!--item -->
                 <div class="item">
                     <div class="avatar">
-                        <img src="{{ asset('assets/img/sample/avatar/avatar1.jpg') }}" alt="avatar" class="imaged w32 rounded">
+                        <img src="{{ asset('assets/img/sample/avatar/avatar1.jpg') }}" alt="avatar"
+                            class="imaged w32 rounded">
                     </div>
                     <div class="in">
                         <div class="comment-header">
@@ -159,7 +166,7 @@
 
 
     <div class="section full mt-2 mb-3">
-        <div class="section-title mb-1">Produtos relacionados</div>        <!-- carousel multiple -->
+        <div class="section-title mb-1">Produtos relacionados</div> <!-- carousel multiple -->
         <div class="carousel-multiple splide">
             <div class="splide__track">
                 <ul class="splide__list">
@@ -168,12 +175,12 @@
                             <li class="splide__slide">
                                 <div class="card product-card">
                                     <div class="card-body">
-                                        <img src="{{ $item->cover_url }}" class="image"
-                                            alt="product image">
+                                        <img src="{{ $item->cover_url }}" class="image" alt="product image">
                                         <h2 class="title">{{ $item->name }}</h2>
                                         <p class="text">1 kg</p>
                                         <div class="price">R$ {{ form_read($item->sale_price) }}</div>
-                                        <a href="{{ route('produtos.show', $item) }}" class="btn btn-sm btn-primary btn-block">VISUALIZAR</a>
+                                        <a href="{{ route('produtos.show', $item) }}"
+                                            class="btn btn-sm btn-primary btn-block">VISUALIZAR</a>
                                     </div>
                                 </div>
                             </li>
