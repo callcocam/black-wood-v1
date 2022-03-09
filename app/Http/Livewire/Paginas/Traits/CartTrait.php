@@ -35,8 +35,7 @@ trait CartTrait
                     'quantidade'=>$this->quantidade,
                     'sale_price'=> $produto->sale_price,
                     'total'=> $produto->sale_price,
-                ]);
-                
+                ]);                
                 return redirect()->route('cart');
             }
         }

@@ -6,15 +6,17 @@
                 </a>
             </div>
             <div class="pageTitle">
-                {{ currentTenant()->name }}
-             </div>
+                @if ($currentTenant = currentTenant())
+                    {{ $currentTenant->name }}
+                @endif
+            </div>
             <div class="right">
                 @if ($isPedido)
-                <a href="{{ route('cart') }}" class="headerButton position-relative">
-                    <ion-icon name="cart-outline"></ion-icon>
-                    <span class="badge badge-danger">{{ $current_order_items_count }}</span>
-                </a>
-            @endif
+                    <a href="{{ route('cart') }}" class="headerButton position-relative">
+                        <ion-icon name="cart-outline"></ion-icon>
+                        <span class="badge badge-danger">{{ $current_order_items_count }}</span>
+                    </a>
+                @endif
                 <a href="#" class="toggle-searchbox">
                     <ion-icon name="cart-outline"></ion-icon>
                 </a>
@@ -23,7 +25,11 @@
     </x-slot>
     <div id="appCapsule">
         <div class="header-large-title">
-            <h1 class="title">{{ currentTenant()->name }}</h1>
+            <h1 class="title">
+                @if ($currentTenant = currentTenant())
+                    {{ $currentTenant->name }}
+                @endif
+            </h1>
             @if ($models)
                 <h4 class="subtitle">Mesas</h4>
             @endif
