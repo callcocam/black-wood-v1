@@ -55,16 +55,21 @@
                     <div class="card">
                         <img src="{{ asset('img/mesas.svg') }}" class="card-img-top" alt="image">
                         <div class="card-body">
-                            <h6 class="card-subtitle">{{ $pedido->mesa->name }}</h6>
-                            <h5 class="card-title">{{ $pedido->status->name }}</h5>
-                            <p class="card-text">
-                                Mesa com {{ $pedido->mesa->occupation }} cadeira(s), valor da reserva R$
-                                {{ form_read($pedido->mesa->price) }}
-                            </p>
-                            <a href="{{ route('produtos') }}" class="btn btn-primary btn-block">
-                                <ion-icon name="add-outline"></ion-icon>
-                                Fazer pedido
-                            </a>
+                            @if ($mesa = $pedido->mesa)
+                                <h6 class="card-subtitle">{{ $pedido->mesa->name }}</h6>
+                                @if ($status = $pedido->status)
+                                <h5 class="card-title">{{ $status->name }}</h5>                                    
+                                @endif
+                                <p class="card-text">
+                                    Mesa com {{ $mesa->occupation }} cadeira(s), valor da reserva R$
+                                    {{ form_read($mesa->price) }}
+                                </p>
+                                <a href="{{ route('produtos') }}" class="btn btn-primary btn-block">
+                                    <ion-icon name="add-outline"></ion-icon>
+                                    Fazer pedido
+                                </a>
+                            @endif
+
                         </div>
                     </div>
                 @endif
